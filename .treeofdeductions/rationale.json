@@ -1,0 +1,548 @@
+{
+    "edges": [
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    11,
+                    11
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    13,
+                    13
+                ]
+            },
+            "rationale": "从设计到实现之间缺失的决策步骤与逻辑推演中包含大量隐性约定。这些隐性约定正是项目成员之间的共识,理应像文档和代码一样被显式且强制地存储和维护;而目前它们只存在于开发人员脑中、靠口头传递,会劣化与丢失,共识无法建立,项目开发逐渐走向无序。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    13,
+                    13
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    15,
+                    15
+                ]
+            },
+            "rationale": "隐性约定的显式化在 AI agent 大规模介入软件开发之后变得急迫:一方面 agent 在开发过程中需要充足的依据,另一方面 reviewer 需要从 agent 大量提交细节中解放出来、重点审核设计变更。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    11,
+                    15
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    19,
+                    19
+                ]
+            },
+            "rationale": "设计文档、代码与变更记录无法还原设计如何被推导出来的历史,缺失的决策与推演中承载着必须显式维护的隐性约定。因此方案是把隐性约定暴露出来、随项目源文件一起维护,提供设计与设计间、设计与代码间的逻辑推演表示。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    19,
+                    19
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    23,
+                    23
+                ]
+            },
+            "rationale": "逻辑推演的表示需要一个结构载体。采用自顶向下的视角,软件项目正是一个由设计逐步到实现构成的有向无环图,这个图就是该表示的载体。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    23,
+                    23
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    25,
+                    32
+                ]
+            },
+            "rationale": "图的非叶部分是设计、叶是实现,因此节点是现有项目的设计描述或具体实现:设计节点(文档)与代码节点(源码)覆盖项目的全部工件。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    27,
+                    27
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    34,
+                    34
+                ]
+            },
+            "rationale": "节点是现有项目的设计描述或具体实现,而不是需要新建的内容,因此用项目源文件中的内容位置来表示节点,应用时对项目现有文件可以不做任何改动。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    31,
+                    31
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    36,
+                    36
+                ]
+            },
+            "rationale": "设计节点由文档表示,其中架构文档本就承担描述现状的职责,因此当前架构由项目现有的设计文档描述。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    23,
+                    23
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    40,
+                    40
+                ]
+            },
+            "rationale": "图中从设计到实现的每一步推导都需要被显式承载:边就是节点之间的逻辑推演关系,一条边陈述目标设计或实现为何从源设计或知识推导而来。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    36,
+                    36
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    57,
+                    59
+                ]
+            },
+            "rationale": "对当前架构的描述解释系统『是什么』,但本身并不解释该架构『为何存在』。因此设计 rationale 与当前架构描述分开维护,记录让另一位开发人员理解设计关系为何存在所必需的工程推理。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    57,
+                    59
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    99,
+                    101
+                ]
+            },
+            "rationale": "设计 rationale 不是静态的:当需求、约束或架构决策变化时,连接设计要素的推演也可能变化。既然项目工件已经通过版本管理工具演化,推演逻辑的变更就与项目一起被维护——设计描述变化、rationale 边新增或更新、变更被记录。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    21,
+                    68
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    70,
+                    95
+                ]
+            },
+            "rationale": "核心模型给出节点与边之后,项目的软件架构知识由设计节点、rationale 边、代码实现与变更记录四要素构成;总结把这一构成确立为核心架构原则:设计作为显式的版本化源文件维护,rationale 作为连接设计与实现的显式边维护。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    72,
+                    82
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    84,
+                    84
+                ]
+            },
+            "rationale": "设计节点、rationale 边、代码实现与变更记录四要素齐备之后,所有源文件——包括 rationale 边描述文件本身——即是项目随时间迭代到达现状的投影,而不再只是对现状的描述。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    84,
+                    84
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    97,
+                    101
+                ]
+            },
+            "rationale": "既然当前所有源文件是历史迭代投影出的现状,推演逻辑的变更就必须与项目一起通过版本管理工具维护:项目变化时相应的设计描述变化、相应的 rationale 边被新增或更新,最终由版本管理工具记录这次变更。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    99,
+                    101
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    103,
+                    103
+                ]
+            },
+            "rationale": "推演逻辑要变得可操作,需要项目的变更能够对照设计知识来评估。因此一次变更所依据的推理被显式收集,而依据来自多个维度。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    103,
+                    103
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    105,
+                    120
+                ]
+            },
+            "rationale": "一个变更可能在实现上正确,却仍与项目架构不一致。因此依据需要单独的设计维度,从项目设计的视角解释该变更集为何恰当。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    103,
+                    103
+                ]
+            },
+            "to": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    122,
+                    137
+                ]
+            },
+            "rationale": "设计正确性并不决定恰当的实现风格。团队与组织约定引入了另一类工程约束,因此依据需要单独的实现维度,解释实现为何遵循项目公认的编码约定。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    40,
+                    40
+                ]
+            },
+            "to": {
+                "file": "src/rationaleStore.ts",
+                "lines": [
+                    9,
+                    9
+                ]
+            },
+            "rationale": "边是有方向的:一条边陈述目标设计或实现为何从源设计或知识推导而来。EdgeSide 恰好命名这两个角色,使查询、透镜与定位构建能对任意一端统一处理。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    23,
+                    23
+                ]
+            },
+            "to": {
+                "file": "src/deductionTree.ts",
+                "lines": [
+                    93,
+                    353
+                ]
+            },
+            "rationale": "项目是由设计逐步到实现的有向无环图,推演从无入边的根命题出发逐级展开。Overview 视图以文件为单位呈现推演源头:根文件下列出该文件中无入边的源命题区间,沿边向下展开整条推演链(节点 → 边 → 派生节点)。当前文档关联的条目以蓝色高亮;光标所在区间的完整推导路径——从最上游根命题直到该区间——以绿色标出,一眼可见此位置是如何被推导出来的。展开状态完全留给用户控制,点击任意条目跳转对应位置。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    40,
+                    40
+                ]
+            },
+            "to": {
+                "file": "src/deductionTree.ts",
+                "lines": [
+                    386,
+                    531
+                ]
+            },
+            "rationale": "边的两端角色明确:from 是依据、to 是结果。Current File 视图按这两个角色分组列出当前文档参与的边——From 组是本文件作为依据发出的推演,To 组是指向本文件的推演——方便就当前文件快速查看双向关系;光标所在的区间同步高亮,把树上的条目对应到正在编辑的位置。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    27,
+                    34
+                ]
+            },
+            "to": {
+                "file": "src/rationaleStore.ts",
+                "lines": [
+                    11,
+                    17
+                ]
+            },
+            "rationale": "节点是现有项目工件而不是新内容,因此端点不定义节点,而是定位节点:指向一个工作区相对路径的文件,及其内一个 1-based 闭区间行范围。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    40,
+                    40
+                ]
+            },
+            "to": {
+                "file": "src/rationaleStore.ts",
+                "lines": [
+                    19,
+                    24
+                ]
+            },
+            "rationale": "边是承载『`to` 为何由 `from` 推导而来』的一等关系。RationaleEdge 正是边库中单条记录在内存中的对应物。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    34,
+                    36
+                ]
+            },
+            "to": {
+                "file": "src/rationaleStore.ts",
+                "lines": [
+                    26,
+                    30
+                ]
+            },
+            "rationale": "节点用项目源文件中的内容位置表示、对现有文件不做任何改动,且当前架构由现有设计文档描述;因此加载后的边携带它所属 rationale 文件的 base,并相对该所属项目根解析端点路径。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    57,
+                    57
+                ]
+            },
+            "to": {
+                "file": "src/rationaleStore.ts",
+                "lines": [
+                    39,
+                    97
+                ]
+            },
+            "rationale": "设计 rationale 与架构描述分开维护、存放在单个 JSON 文档中,因此进入系统时需要严格的逐条校验:把非法边报告为 edges[i] 并跳过,而不是悄悄污染整张图。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    34,
+                    36
+                ]
+            },
+            "to": {
+                "file": "src/rationaleStore.ts",
+                "lines": [
+                    115,
+                    144
+                ]
+            },
+            "rationale": "节点用现有源文件的位置表示、没有引入单独的设计数据库,因此 store 在工作区内部发现 rationale 文件,并相对拥有该文件的项目根解析端点路径。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    99,
+                    101
+                ]
+            },
+            "to": {
+                "file": "src/rationaleStore.ts",
+                "lines": [
+                    106,
+                    113
+                ]
+            },
+            "rationale": "设计描述与 rationale 边随版本管理工具一起演化,因此内存中的图必须跟踪被版本化的边文件:rationale.json 的任何变更都触发重载,无需重启编辑器。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    13,
+                    15
+                ]
+            },
+            "to": {
+                "file": "src/providers.ts",
+                "lines": [
+                    16,
+                    56
+                ]
+            },
+            "rationale": "隐性约定需要像文档与代码一样被显式存储,并向 AI agent 与 reviewer 传递;因此引入的 rationale 借助 VS Code 原生的引用体验呈现——引用计数透镜加 Shift+F12——而不是评审者需要额外学习的自定义 UI。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    57,
+                    59
+                ]
+            },
+            "to": {
+                "file": "src/providers.ts",
+                "lines": [
+                    57,
+                    72
+                ]
+            },
+            "rationale": "rationale 记录理解一段关系为何存在所必需的工程推理;因此在被指向的区间内悬停,会在需要的当场展示记录的 rationale 及其来源位置。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    15,
+                    15
+                ]
+            },
+            "to": {
+                "file": "src/providers.ts",
+                "lines": [
+                    74,
+                    81
+                ]
+            },
+            "rationale": "reviewer 应从 agent 大量提交细节中解放出来、重点审核设计变更,因此透镜打开内置的 peek 引用部件,在单一的评审者视图中列出全部来源并带预览。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    34,
+                    34
+                ]
+            },
+            "to": {
+                "file": "src/extension.ts",
+                "lines": [
+                    24,
+                    52
+                ]
+            },
+            "rationale": "设计上应用时对项目现有文件可以不做任何改动;同理,扩展是仓库之上的只读层,激活时一次性接线,不拦截任何编辑行为。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    38,
+                    68
+                ]
+            },
+            "to": {
+                "file": "src/test/extension.test.ts",
+                "lines": [
+                    19,
+                    58
+                ]
+            },
+            "rationale": "边模型是系统唯一的结构性事实来源,因此由测试钉死:解析器覆盖合法记录的接受与非法记录的拒绝,推演树则对真实边库做集成测试——仅有入边的叶文件仍可被定位、高亮并沿链展开。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    57,
+                    68
+                ]
+            },
+            "to": {
+                "file": "README.md",
+                "lines": [
+                    48,
+                    72
+                ]
+            },
+            "rationale": "rationale 边记录理解一段关系为何存在所必需的工程推理——不是思维链,也不是现状描述。建边指导正是把这条边界操作化:什么算可记录的『为什么』,什么则归 artifact 或 Git 管。"
+        },
+        {
+            "from": {
+                "file": "tree-of-deductions.md",
+                "lines": [
+                    99,
+                    101
+                ]
+            },
+            "to": {
+                "file": "README.md",
+                "lines": [
+                    48,
+                    72
+                ]
+            },
+            "rationale": "rationale 边在设计变化时新增或更新,并随项目一起通过版本管理工具演化;并不要求预先把项目全量建模。因此指导采取按需积累:在真实察觉到推理需求的那个时刻才补边。"
+        }
+    ]
+}

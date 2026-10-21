@@ -1,0 +1,80 @@
+{
+  "name": "tree-of-deductions",
+  "displayName": "TreeOfDeductions",
+  "publisher": "moose-ye",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YMoose/tree-of-deductions"
+  },
+  "description": "",
+  "version": "0.0.1",
+  "license": "MIT OR GPL-3.0-or-later",
+  "engines": {
+    "vscode": "^1.129.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "treeofdeductions.showIncomingRationale",
+        "title": "Show Incoming Rationale"
+      },
+      {
+        "command": "treeofdeductions.reloadRationale",
+        "title": "Reload Rationale Edges",
+        "category": "TreeOfDeductions"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "treeofdeductions",
+          "title": "Tree of Deductions",
+          "icon": "media/activity-bar.svg"
+        }
+      ]
+    },
+    "views": {
+      "treeofdeductions": [
+        {
+          "id": "treeofdeductions.overview",
+          "name": "Overview",
+          "contextualTitle": "Tree of Deductions"
+        },
+        {
+          "id": "treeofdeductions.currentFile",
+          "name": "Current File",
+          "contextualTitle": "Tree of Deductions"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.129.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "typescript-eslint": "^8.61.1",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
+  }
+}
